@@ -14,6 +14,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
  */
 public class App extends ListenerAdapter 
 {
+	
     public static void main( String[] args ) throws Exception 
     {
 	JDA jda = new JDABuilder(AccountType.BOT).setToken(Ref.token).buildBlocking();
@@ -31,10 +32,13 @@ public class App extends ListenerAdapter
     	if(evt.getAuthor().isBot()) {
     		return;
     	}
+    	Console.see();
     	Hello.hi(evt.getMessage());
+    	Trivia.guess(evt);
     	Ping.pong(evt.getMessage());
     	Poll.vote(evt.getMessage());
     	Portal.warp(evt);
+    	Count.num(evt.getMessage());
     }
 }
    

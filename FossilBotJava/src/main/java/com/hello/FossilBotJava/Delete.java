@@ -40,7 +40,7 @@ public class Delete {
 	   		builder.setColor(Color.decode("#EA2029"));
 	   		builder.setDescription("in "+ msg.getChannel().getName() + " " + sdf.format(date)+ " at " + stf.format(date));
 	   		builder.setAuthor(mem.getName(), mem.getAvatarUrl(), mem.getAvatarUrl());
-	   		builder.setThumbnail("https://cdn1.iconfinder.com/data/icons/round-ui/123/47-512.png");
+	   		builder.setThumbnail("https://www.youtube.com/watch?v=trzY_3y_JjY&index=14&list=PLdnyVeMcpY7-X3xi9BDtSQIqKrVXSaESh");
 	   		Ref.here.sendMessage(builder.build()).queue();
 	   	}
 	}

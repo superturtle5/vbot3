@@ -5,12 +5,15 @@ import net.dv8tion.jda.core.entities.Message;
 public class Mhistory {
 	public static int numOn = 0;
 	public static void record(Message m) {
-		if(m.getGuild().getName().equalsIgnoreCase("NHS") || m.getGuild().getName().equalsIgnoreCase("Testing"))
+		if(m.getGuild().getName().equalsIgnoreCase("NHS") || m.getGuild().getName().equalsIgnoreCase("Testing")) {
+			if(numOn >= hs.length - 1) {
+				numOn = 0;
+			}
 		hs[numOn] = m;
 		System.out.println("logged: " + m.getContentRaw() + " | " + m.getAuthor().getName() + " | "+ m.getGuild().getName() + "-" + m.getChannel().getName() + " | " + numOn);
 		numOn++;
-		if(numOn > hs.length) {
-			numOn = 0;
+		} else {
+			System.out.println("saw: " + m.getContentRaw() + " | " + m.getAuthor().getName() + " | "+ m.getGuild().getName() + "-" + m.getChannel().getName() + " | " + numOn);
 		}
 	}
 	public static Message[] hs = {

@@ -33,7 +33,7 @@ public class Clear {
 			   		builder.setColor(Color.decode("#1e90ff"));
 			   		builder.setDescription(sdf.format(date)+ " at " + stf.format(date));
 			   		builder.setAuthor(evt.getAuthor().getName(), evt.getAuthor().getAvatarUrl(), evt.getAuthor().getAvatarUrl());
-			   		builder.setThumbnail("https://cdn2.iconfinder.com/data/icons/silhouette-icon-1/512/clear-512.png");
+			   		builder.setThumbnail("https://cdn.glitch.com/7c1e6bd9-6327-4f41-8793-885f6b4e2a57%2Fclear%20icon%20(1).png?1546753171009");
 			   		for(int I = 0; I < Integer.parseInt(words[1]); I++) {
 			   			OffsetDateTime t = cHistory.get(I).getCreationTime();
 			   			builder.addField("Cleared: `" + cHistory.get(I).getContentRaw()+ "`",
