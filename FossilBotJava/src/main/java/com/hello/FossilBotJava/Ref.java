@@ -9,11 +9,12 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "xD lolz";
+	public static final String token = "NTMwMTE5MDU5NzQ5MDc2OTky.DxL4Sg.qo09SH03OrA-Ql7tU6ba8IC_NOk";
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
 	public static List<Guild> List = new ArrayList<Guild>();
 	public static Guild main;
 	public static List<MessageChannel> portal = new ArrayList<MessageChannel>();
 	public static List<Message> answeres = new ArrayList<Message>();
+	public static Message prev = null;
 }

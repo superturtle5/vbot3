@@ -39,7 +39,10 @@ public class App extends ListenerAdapter
     	Poll.vote(evt.getMessage());
     	Portal.warp(evt);
     	Count.num(evt.getMessage());
+    	Poll.check();
     }
+   
+    
 }
    
 

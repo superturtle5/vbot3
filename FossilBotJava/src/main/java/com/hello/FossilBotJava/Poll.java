@@ -38,4 +38,7 @@ public class Poll {
 			return false;
 		}
 	}
+	static void check() {
+		
+	}
 }
