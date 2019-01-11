@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "NTMwMTE5MDU5NzQ5MDc2OTky.DxL4Sg.qo09SH03OrA-Ql7tU6ba8IC_NOk";
+	public static final String token = "nope";
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
 	public static List<Guild> List = new ArrayList<Guild>();
