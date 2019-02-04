@@ -7,6 +7,10 @@ public class Count {
 	public static void num(Message m) {
 		 boolean lookAtIt = true;
 		//if(!Bools.isAdmin(m)) {
+		 if(m.getContentRaw().equalsIgnoreCase(Ref.prefix + "c reset")) {
+			 Ref.prev = null;
+			 m.getChannel().sendMessage("I will now stop being mean and deleting your messages ( ͡° ͜ʖ ͡°)").queue();
+		 }
 			if(!Poll.isNum(m.getContentRaw(), 0, 99999) && m.getChannel().getName().equalsIgnoreCase("counting")) {
 				m.delete().queueAfter(2, TimeUnit.SECONDS);
 			} 

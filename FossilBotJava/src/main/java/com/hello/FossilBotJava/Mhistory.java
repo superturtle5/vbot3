@@ -5,7 +5,7 @@ import java.io.IOException;
 import net.dv8tion.jda.core.entities.Message;
 
 public class Mhistory {
-	static String filePath = "H:/discordMsg.txt";
+	static String filePath = "C:/Archive/discord.txt";
 	public static int numOn = 0;
 	public static void record(Message m) {
 		if(m.getGuild().getName().equalsIgnoreCase("NHS") || m.getGuild().getName().equalsIgnoreCase("Testing")) {
