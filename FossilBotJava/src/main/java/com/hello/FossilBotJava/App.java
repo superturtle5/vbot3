@@ -32,6 +32,7 @@ public class App extends ListenerAdapter
     	if(evt.getAuthor().isBot()) {
     		return;
     	}
+    	Uncrust.bul(evt.getMessage());
     	Console.see();
     	Hello.hi(evt.getMessage());
     	Trivia.guess(evt);
