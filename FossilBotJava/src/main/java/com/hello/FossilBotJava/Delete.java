@@ -14,20 +14,12 @@ import net.dv8tion.jda.core.events.message.MessageDeleteEvent;
 
 public class Delete {
 
-	public static void log(MessageDeleteEvent evt) {
-		 String msgId = evt.getMessageId();
-	     List<AuditLogEntry> res = evt.getGuild().getAuditLogs().complete();
+	
+	public static void log(MessageDeleteEvent evt){
+		 Message msg = Mhistory.fetch(evt.getMessageId());
+		 List<AuditLogEntry> res = evt.getGuild().getAuditLogs().complete();
 	     AuditLogEntry audit = res.get(0);
 	     User mem = audit.getUser();     
-	   	 Message msg = null;
-	   	 Message[] msgs = Mhistory.hs;
-	   	 for(int i = 0; i < Mhistory.hs.length - 1; i++) {
-	   		 if(msgs[i] !=null) {
-	   			 if(msgs[i].getId().equals(msgId)) {
-	   				 msg = msgs[i];
-	   			}
-	   		 }
-	   	 }
 //	   	 System.out.println(msg + " != null");
 //	   	 System.out.println(audit.getType());
 //	   	 System.out.println(audit.getTargetId() + " == " + msg.getAuthor().getId());
@@ -43,6 +35,7 @@ public class Delete {
 	   		builder.setThumbnail("https://www.youtube.com/watch?v=trzY_3y_JjY&index=14&list=PLdnyVeMcpY7-X3xi9BDtSQIqKrVXSaESh");
 	   		Ref.here.sendMessage(builder.build()).queue();
 	   	}
-	}
+}
+	
 	
 }

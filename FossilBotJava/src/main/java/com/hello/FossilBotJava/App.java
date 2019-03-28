@@ -4,10 +4,12 @@ package com.hello.FossilBotJava;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-
+import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
 /**
  * Hello world!
  *
@@ -25,24 +27,40 @@ public class App extends ListenerAdapter
     public void  onMessageDelete(MessageDeleteEvent evt) {
    	 Delete.log(evt);
    }
+   
+    	
+   
      
     public void onMessageReceived(MessageReceivedEvent evt) {
     	Clear.logClear(evt);
     	Mhistory.record(evt.getMessage());
     	if(evt.getAuthor().isBot()) {
+    		Poll.ree(evt);
     		return;
     	}
     	Uncrust.bul(evt.getMessage());
     	Console.see();
     	Hello.hi(evt.getMessage());
-    	Trivia.guess(evt);
+    	//Trivia.guess(evt);
     	Ping.pong(evt.getMessage());
     	Poll.vote(evt.getMessage());
     	Portal.warp(evt);
     	Count.num(evt.getMessage());
-    	Poll.check();
+    	//Poll.check();
+    	//Control.look(evt);
+    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
+			Ref.main = evt.getMessage().getGuild();
+			System.out.println("SET MAIN");
+		}
     }
-   
+    public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent evt) {
+    	if(evt.getUser().isBot()) {
+    		return;
+    	}
+    	Poll.rec(evt);
+    	//System.out.println(evt.getReaction().getReactionEmote().getName());
+    }
+    
     
 }
    
