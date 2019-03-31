@@ -7,6 +7,7 @@ public class Hello extends ListenerAdapter {
 	 public static void hi(Message m) {
 		 //System.out.println(Mhistory.fetch(m.getId()));
 		 String[] words  = m.getContentRaw().split(" ");
+		 System.out.println(Ref.votes);
 		if(words[0].equalsIgnoreCase(Ref.prefix+"hello")
 		    || words[0].equalsIgnoreCase(Ref.prefix+"hi")
 		    || words[0].equalsIgnoreCase(Ref.prefix+"sup")

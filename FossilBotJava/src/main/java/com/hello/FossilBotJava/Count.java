@@ -14,7 +14,7 @@ public class Count {
 			if(!Poll.isNum(m.getContentRaw(), 0, 99999) && m.getChannel().getName().equalsIgnoreCase("counting")) {
 				m.delete().queueAfter(2, TimeUnit.SECONDS);
 			} 
-			//System.out.println(Ref.prev);
+			//cSystem.out.println(Ref.prev);
 			if(Poll.isNum(m.getContentRaw(), 0, 99999) && m.getChannel().getName().equalsIgnoreCase("counting")) {
 				if(Ref.prev != null) {
 					System.out.println(m.getContentRaw() + "=?" + (Integer.parseInt(Ref.prev.getContentRaw()) + 1) + "");

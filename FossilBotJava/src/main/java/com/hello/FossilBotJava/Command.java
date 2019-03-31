@@ -1,5 +1,9 @@
 package com.hello.FossilBotJava;
 
+import java.util.ArrayList;
+
+import java.util.List;
+
 public class Command {
 	 private String com;
 	 private String res;

@@ -1,7 +1,7 @@
 package com.hello.FossilBotJava;
 
 import java.util.List;
-
+import java.util.ArrayList;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
