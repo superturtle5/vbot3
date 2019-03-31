@@ -10,9 +10,9 @@ public class Poll {
 	public static void vote(Message m) {
 		String[] words = m.getContentRaw().split(" ");
 		int num;
-		String[] alpha = {"🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇼", "🇽", "🇾", "🇿"};
+		String[] alpha = {"🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯"};
 		if(m.getContentRaw().contains(Ref.prefix+"m ") || m.getContentRaw().contains(Ref.prefix+"multiple")) {
-				if(isNum(words[1], 2, 33)) {
+				if(isNum(words[1], 2, 11)) {
 					num = Integer.parseInt(words[1]);
 					for(int i = 0; i < num; i ++) {
 						m.addReaction(alpha[i]).queue();
