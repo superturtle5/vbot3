@@ -50,7 +50,7 @@ public class App extends ListenerAdapter
     	//Control.look(evt);
     	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
 			Ref.main = evt.getMessage().getGuild();
-			System.out.println("SET MAIN");
+			//System.out.println("SET MAIN");
 		}
     }
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent evt) {

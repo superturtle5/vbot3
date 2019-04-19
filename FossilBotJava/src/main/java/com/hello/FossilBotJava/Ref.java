@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "NTMwMTE5MDU5NzQ5MDc2OTky.XKAbMQ.nqpoM-ubZdDLK0Yxvw4yWGrnWBQ";
+	public static final String token = "NDgyMzgyTI5NTk3Mjc2MTkw.XLTKwQ.cUKJU8YBad91NcsJN0xrNF_WUYI";
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
 	public static List<Guild> List = new ArrayList<Guild>();
