@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
 
 public class Poll {
@@ -44,8 +45,13 @@ public class Poll {
     		m.addReaction("❌").queue();
 			
 		}
+		if(m.getContentRaw().equals("")) {
+			m.addReaction("🔺").queue();
+			m.addReaction("🔻").queue();
+		}
+
 	}
-	public static void ree(MessageReceivedEvent evt) {
+	public static void ree(GuildMessageReceivedEvent evt) {
 		Message m = evt.getMessage();
 		if(m.getContentRaw().split(" ")[0].equals("**🆙") && m.getAuthor().getId().equals("172002275412279296")) {
 			m.delete();
@@ -94,8 +100,14 @@ public class Poll {
 	static void clear(Message mm, Vote vote) {
 		//String send = mm.getContentRaw() + " &" + vote.getIndex();
 		
-		mm.delete().queue();
-		mm.getChannel().sendMessage(mm.getContentRaw()).queue();
+		mm.clearReactions().queue();
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		mm.addReaction("✅").queue(); mm.addReaction("🔶").queue(); mm.addReaction("❌").queue();
+		//mm.getChannel().sendMessage(mm.getContentRaw()).queue();
 	}
 	// index = &002
 	public static Vote findVote(String id) {

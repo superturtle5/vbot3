@@ -32,7 +32,7 @@ public class Delete {
 	   		builder.setColor(Color.decode("#EA2029"));
 	   		builder.setDescription("in "+ msg.getChannel().getName() + " " + sdf.format(date)+ " at " + stf.format(date));
 	   		builder.setAuthor(mem.getName(), mem.getAvatarUrl(), mem.getAvatarUrl());
-	   		builder.setThumbnail("https://www.youtube.com/watch?v=trzY_3y_JjY&index=14&list=PLdnyVeMcpY7-X3xi9BDtSQIqKrVXSaESh");
+	   		builder.setThumbnail("//https://docs.google.com/drawings/d/e/2PACX-1vRo3OlBtygDBiXoQkXIar1hkg3B9aPcQjIh2eKCn7Joam1AhlRjhTIOR4oGgGx13u02OcebUFQ1YJWy/pub?w=720&h=720");
 	   		Ref.here.sendMessage(builder.build()).queue();
 	   	}
 }

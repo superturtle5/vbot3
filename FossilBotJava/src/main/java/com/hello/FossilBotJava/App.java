@@ -5,15 +5,14 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.events.channel.priv.PrivateChannelCreateEvent;
 import net.dv8tion.jda.core.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
-/**
- * Hello world!
- *
- */
+
 public class App extends ListenerAdapter 
 {
 	
@@ -29,9 +28,9 @@ public class App extends ListenerAdapter
    }
    
     	
-   
+
      
-    public void onMessageReceived(MessageReceivedEvent evt) {
+    public void onGuildMessageReceived(GuildMessageReceivedEvent evt) {
     	Clear.logClear(evt);
     	Mhistory.record(evt.getMessage());
     	if(evt.getAuthor().isBot()) {
@@ -53,12 +52,16 @@ public class App extends ListenerAdapter
 			//System.out.println("SET MAIN");
 		}
     }
+ public static void onPrivateChannelCreated(PrivateChannelCreateEvent evt) {
+    	Hello.t(evt);
+    	
+   }
     public void onGuildMessageReactionAdd(GuildMessageReactionAddEvent evt) {
     	if(evt.getUser().isBot()) {
     		return;
     	}
     	Poll.rec(evt);
-    	//System.out.println(evt.getReaction().getReactionEmote().getName());
+    	
     }
     
     

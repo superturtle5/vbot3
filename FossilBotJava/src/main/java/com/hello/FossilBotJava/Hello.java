@@ -1,10 +1,13 @@
 package com.hello.FossilBotJava;
 
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.events.channel.priv.PrivateChannelCreateEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class Hello extends ListenerAdapter {
 	 public static void hi(Message m) {
+		 
+		 
 		 //System.out.println(Mhistory.fetch(m.getId()));
 		 String[] words  = m.getContentRaw().split(" ");
 		// System.out.println(Ref.votes);
@@ -14,6 +17,7 @@ public class Hello extends ListenerAdapter {
 		    || words[0].equalsIgnoreCase(Ref.prefix+"yo")
 		    || words[0].equalsIgnoreCase(Ref.prefix+"good moring")) {
 			 	m.getChannel().sendMessage("Greetings!").queue();
+			 	
 		    	}
 		if(m.getGuild().getTextChannelById("482384287513968665") != null) {
 			Ref.here = m.getGuild().getTextChannelById("482384287513968665");
@@ -26,4 +30,14 @@ public class Hello extends ListenerAdapter {
 			}
 		}
 	}
+
+
+	public static void t(PrivateChannelCreateEvent evt) {
+		System.out.println("hello");
+		evt.getChannel().sendMessage("hi").queue();
+		evt.getChannel().close().queue();
+		
+	}
+	 
+	 
 }

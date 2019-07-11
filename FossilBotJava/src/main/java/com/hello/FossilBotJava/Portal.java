@@ -11,9 +11,10 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class Portal {
-	public static void warp(MessageReceivedEvent evt) {
+	public static void warp(GuildMessageReceivedEvent evt) {
 		String[] words = evt.getMessage().getContentRaw().split(" ");
 		String[] wordsD = evt.getMessage().getContentRaw().split("&");
 		java.util.List<TextChannel> portal = evt.getGuild().getTextChannelsByName("portal", true);

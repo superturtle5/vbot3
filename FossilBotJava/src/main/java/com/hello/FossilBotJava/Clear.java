@@ -10,9 +10,10 @@ import java.util.List;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 public class Clear {
-	public static void logClear(MessageReceivedEvent evt) {
+	public static void logClear(GuildMessageReceivedEvent evt) {
 		String[] words = evt.getMessage().getContentRaw().split(" ");
 		int num;
 		List<Message> cHistory = new ArrayList<Message>();

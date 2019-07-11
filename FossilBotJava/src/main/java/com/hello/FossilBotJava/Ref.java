@@ -5,13 +5,16 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.MessageReaction;
+import net.dv8tion.jda.core.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Ref {
-	public static final String token = "NDgyMzgyTI5NTk3Mjc2MTkw.XLTKwQ.cUKJU8YBad91NcsJN0xrNF_WUYI";
+	public static final String token = "sorry cole";
+	//
+	
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
 	public static List<Guild> List = new ArrayList<Guild>();
@@ -25,4 +28,5 @@ public class Ref {
 	public static int round = 0;
 	public static List<Command> coms = new ArrayList<Command>();
 	public static List<Vote> votes = new ArrayList<Vote>();
+	public static List<User> notify = new ArrayList<User>();
 }
