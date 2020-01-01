@@ -5,6 +5,7 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageChannel;
 import net.dv8tion.jda.core.entities.MessageReaction;
+import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.entities.User;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "sorry cole";
+	public static final String token = "NTMwMTE5MDU5NzQ5MDc2OTky.XfhU6g.9vHyh9YO7vDNIdm_blZrcZl95Uo";
 	//
 	
 	public static final String prefix = "<";
@@ -29,4 +30,7 @@ public class Ref {
 	public static List<Command> coms = new ArrayList<Command>();
 	public static List<Vote> votes = new ArrayList<Vote>();
 	public static List<User> notify = new ArrayList<User>();
+	public static Guild bigMain;
+	public static Boolean didFlail; 
+	public static Role lastCur;
 }
