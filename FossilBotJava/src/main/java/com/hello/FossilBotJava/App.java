@@ -1,8 +1,6 @@
 package com.hello.FossilBotJava;
 
 
-import java.io.IOException;
-
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -11,7 +9,6 @@ import net.dv8tion.jda.core.events.channel.priv.PrivateChannelCreateEvent;
 import net.dv8tion.jda.core.events.message.MessageDeleteEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.react.MessageReactionAddEvent;
-import net.dv8tion.jda.core.events.user.UserTypingEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
@@ -25,11 +22,6 @@ public class App extends ListenerAdapter
        jda.addEventListener(new App());
     }
    
-    CoolThread t1 =  new CoolThread("One");
-    CoolThread t2 =  new CoolThread("Two"); //TO DO: put things on seperate threads 
-    CoolThread t3;
-   
-    
     @Override
     public void  onMessageDelete(MessageDeleteEvent evt) {
    	 Delete.log(evt);
@@ -45,9 +37,6 @@ public class App extends ListenerAdapter
     		Poll.ree(evt);
     		return;
     	}
-    	try {
-			Rgb.ree(evt);
-		} catch (IOException e) {}
     	Uncrust.bul(evt.getMessage());
     	Console.see();
     	Hello.hi(evt.getMessage());
@@ -62,13 +51,6 @@ public class App extends ListenerAdapter
 			Ref.main = evt.getMessage().getGuild();
 			//System.out.println("SET MAIN");
 		}
-    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
-			Ref.bigMain = evt.getMessage().getGuild();
-			t3 =  new CoolThread("Three");
-		}
-    }
-    public void onUserTyping(UserTypingEvent evt) {
-    	System.out.println("rg9uhuifd ng8ydifbnygdaufg he9g yb gu9aihf j");
     }
  public static void onPrivateChannelCreated(PrivateChannelCreateEvent evt) {
     	Hello.t(evt);

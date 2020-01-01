@@ -1,7 +1,5 @@
 package com.hello.FossilBotJava;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -23,15 +21,4 @@ public class WriteFile {
 		print_line.printf( "%s" + "%n" , textLine);
 		print_line.close();
 	}
-	public String read() throws IOException {
-		String r = "";
-		FileReader fr = new FileReader(path);
-		 int i; 
-		    while ((i=fr.read()) != -1) {
-		     r+= (char) i; 
-		    }
-		    return r;
-	}
-	
-	
 }
