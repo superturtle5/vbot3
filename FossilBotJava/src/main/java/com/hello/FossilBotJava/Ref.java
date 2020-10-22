@@ -13,8 +13,9 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "NTMwMTE5MDU5NzQ5MDc2OTky.XfhU6g.9vHyh9YO7vDNIdm_blZrcZl95Uo";
-	//
+	public static final String token = "NDgyMzgyNTI5NTk3Mjc2MTkw.XqUjFw.AhqAQrFo7pEbvkJ6DuC9HTZoLDA";
+	//NzMyOTQ4OTk5MTUzMTIzNDI4.Xw9C7Q.hGdutIF60FT2nO4Gg-aPaGOnhTQ
+//NDgyMzgyNTI5NTk3Mjc2MTkw.XqUjFw.AhqAQrFo7pEbvkJ6DuC9HTZoLDA
 	
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
@@ -33,4 +34,6 @@ public class Ref {
 	public static Guild bigMain;
 	public static Boolean didFlail; 
 	public static Role lastCur;
+	public static boolean on = false;
+
 }

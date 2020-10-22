@@ -28,8 +28,8 @@ public class App extends ListenerAdapter
     CoolThread t1 =  new CoolThread("One");
     CoolThread t2 =  new CoolThread("Two"); //TO DO: put things on seperate threads 
     CoolThread t3;
-   
-    
+   boolean started = false;
+
     @Override
     public void  onMessageDelete(MessageDeleteEvent evt) {
    	 Delete.log(evt);
@@ -45,11 +45,21 @@ public class App extends ListenerAdapter
     		Poll.ree(evt);
     		return;
     	}
+    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
+			Ref.main = evt.getMessage().getGuild();
+			
+			//System.out.println("SET MAIN");
+		}
+    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("nhs")){
+			Ref.bigMain = evt.getMessage().getGuild();
+			if (!started && Ref.on)
+				t3 =  new CoolThread("Three"); started = true;
+		}
     	try {
 			Rgb.ree(evt);
 		} catch (IOException e) {}
     	Uncrust.bul(evt.getMessage());
-    	Console.see();
+    	Console.see(evt.getMessage());
     	Hello.hi(evt.getMessage());
     	//Trivia.guess(evt);
     	Ping.pong(evt.getMessage());
@@ -58,14 +68,7 @@ public class App extends ListenerAdapter
     	Count.num(evt.getMessage());
     	//Poll.check();
     	//Control.look(evt);
-    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
-			Ref.main = evt.getMessage().getGuild();
-			//System.out.println("SET MAIN");
-		}
-    	if(evt.getMessage().getGuild().getName().equalsIgnoreCase("Testing")){
-			Ref.bigMain = evt.getMessage().getGuild();
-			t3 =  new CoolThread("Three");
-		}
+    	
     }
     public void onUserTyping(UserTypingEvent evt) {
     	System.out.println("rg9uhuifd ng8ydifbnygdaufg he9g yb gu9aihf j");

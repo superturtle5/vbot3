@@ -14,7 +14,8 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.managers.GuildController;
 
 public class Rgb {
-	final static int h = 4250;
+	final static int h = 5000;
+	final static int roleNum = 23;
 	static WriteFile store = new WriteFile("E:/code/cache.txt", true);
 	static WriteFile rStore = new WriteFile("E:/code/cache.txt", false);
 	static Role[] r = new Role[4];
@@ -45,7 +46,7 @@ public class Rgb {
 				evt.getChannel().sendMessage("Sorry, but you have already transended... you simply lack the power required to advance futher down the path of RGB \n __***RGB REEEEEEEEEEEEEE***__").queue();
 				return;
 			}
-			evt.getGuild().getController().addRolesToMember(o, Arrays.asList(generateRoles(9, g))).queue();
+			evt.getGuild().getController().addRolesToMember(o, Arrays.asList(generateRoles(roleNum, g))).queue();
 			m.getChannel().sendMessage(o.getAsMention() + " has transended to rgb!").queue();
 		}
 		if(evt.getMessage().getContentRaw().equals(Ref.prefix + "descend")) {
@@ -165,6 +166,29 @@ public class Rgb {
 			rs[i] = g.getRolesByName("rgb" + i, true).get(0);
 		}
 		return rs;
+	}
+	
+	public static Role[] sortRoles(Role[] rus, Guild g) {
+		int don = 0;
+		Role[] rs = new Role[roleNum];
+		Role highest = g.getPublicRole(); 
+		for(int o = 0; o < roleNum; o++ ) {
+			System.out.println("SLOT: " + o);
+			for(int i = 0; i < roleNum; i++) {
+				System.out.println("Checking " + rus[i].getName() + " at " + rus[i].getPosition() + " against " +  highest.getName() + " at " + highest.getPosition() + "");
+				if(rus[i].getPosition() > highest.getPosition()) {
+					System.out.println("highest has changed to: " + rus[i].getName() + " and don = " + i);
+					highest = rus[i];
+					don = i;
+				}
+			}
+			System.out.println("adding: " + highest.getName() + " to "  + o + " from " + don);
+			rs[o] = highest;
+			rus[don] = g.getPublicRole();
+			highest = g.getPublicRole();
+		}
+		return rs;
+
 	}
 	
 }

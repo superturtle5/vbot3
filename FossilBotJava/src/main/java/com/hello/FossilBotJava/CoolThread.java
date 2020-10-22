@@ -51,27 +51,19 @@ public class CoolThread implements Runnable{
 		int restTim = 0;
 		List<Member> mem;
 		Role top;
-		List<Role> rs;
 		Guild g = Ref.bigMain;
-
+		Role[] rs =  Rgb.sortRoles(Rgb.generateRoles(Rgb.roleNum, g), g);
+	
+		int start = rs[0].getPosition();
+	
+		
 		while(true) {
-//			System.out.println("RGB tick");
-//			mem = Ref.bigMain.getMembers();
-//			for(Member tar : mem) {
-//				try {
-//					if((tar.getOnlineStatus().equals(OnlineStatus.ONLINE) || tar.getOnlineStatus().equals(OnlineStatus.IDLE)) && Rgb.isOnList(tar)) {
-//						System.out.println("Attmting to update " + tar.getAsMention() + "\n" + tar.getRoles().toString());
-//						Rgb.update(tar, 9);
-//					}			
-//				} catch (IOException e) {}
-//			}
-			rs = g.getRoles();
-			System.out.println(rs.get(rs.size() - 10));
-			top = rs.get(rs.size() - 10);
-			g.getController().modifyRolePositions().selectPosition(top).moveTo(0).queue();
+			System.out.println("RGB tick");
+
+			g.getController().modifyRolePositions().selectPosition(start).moveTo(start - 22).queue();
 			
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(Rgb.h);
 			} catch (InterruptedException e) {}
 		}
 	}

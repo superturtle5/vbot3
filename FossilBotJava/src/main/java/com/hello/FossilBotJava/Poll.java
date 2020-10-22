@@ -1,8 +1,12 @@
 package com.hello.FossilBotJava;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.MessageReaction;
+import net.dv8tion.jda.core.entities.MessageReaction.ReactionEmote;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
@@ -46,8 +50,8 @@ public class Poll {
 			
 		}
 		if(m.getContentRaw().equals("")) {
-			m.addReaction("🔺").queue();
-			m.addReaction("🔻").queue();
+//			m.addReaction("🔺").queue();
+//			m.addReaction("🔻").queue();
 		}
 
 	}
@@ -79,6 +83,7 @@ public class Poll {
 	static void rec(GuildMessageReactionAddEvent evt) {
 		
 		try {
+			User u = evt.getUser();
 			String m = evt.getReaction().getReactionEmote().getName();
 			Message mm = Mhistory.fetch(evt.getMessageId());
 			String[] words = mm.getContentRaw().split(" ");
@@ -91,25 +96,23 @@ public class Poll {
 				}else if(m.equals("❌")) {
 					vote.addNo(evt.getUser());
 			}
-			clear(mm, vote);
+			clear(mm, vote, evt.getReaction(), u);
 		} catch(Exception e){
 			System.out.println("we ran out of history :O {Poll: 90}");
 		}
 		
 	}
-	static void clear(Message mm, Vote vote) {
+	static void clear(Message mm, Vote vote, MessageReaction r, User u) {
 		//String send = mm.getContentRaw() + " &" + vote.getIndex();
-		
-		mm.clearReactions().queue();
+		r.removeReaction(u).queue();
 		try {
-			Thread.sleep(100);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		mm.addReaction("✅").queue(); mm.addReaction("🔶").queue(); mm.addReaction("❌").queue();
 		//mm.getChannel().sendMessage(mm.getContentRaw()).queue();
 	}
-	// index = &002
 	public static Vote findVote(String id) {
 		List<Vote> votes = Ref.votes;
 		for(Vote vote: votes) {
