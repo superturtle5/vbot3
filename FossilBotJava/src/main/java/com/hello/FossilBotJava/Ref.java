@@ -13,9 +13,7 @@ import java.util.List;
 
 
 public class Ref {
-	public static final String token = "NDgyMzgyNTI5NTk3Mjc2MTkw.XqUjFw.AhqAQrFo7pEbvkJ6DuC9HTZoLDA";
-	//NzMyOTQ4OTk5MTUzMTIzNDI4.Xw9C7Q.hGdutIF60FT2nO4Gg-aPaGOnhTQ
-//NDgyMzgyNTI5NTk3Mjc2MTkw.XqUjFw.AhqAQrFo7pEbvkJ6DuC9HTZoLDA
+	public static final String token = "";
 	
 	public static final String prefix = "<";
 	public static MessageChannel here = null;
