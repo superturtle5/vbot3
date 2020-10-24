@@ -3,12 +3,9 @@ import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.message.Message;
 
 
-public class App {
-
-    public static class Main {
+ public class Main {
         public static void main(String[] args) throws Exception {
             DiscordApi api = new DiscordApiBuilder().setToken(Ref.token).login().join();
-
             api.addMessageCreateListener(event -> {
                 if(event.getMessage().getUserAuthor().get().isYourself() && event.getMessage().getContent().contains("<ap")){
                     Message mes = event.getMessage();
@@ -30,5 +27,5 @@ public class App {
 
 
         }
-    }
-}
+ }
+

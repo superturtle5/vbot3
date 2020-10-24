@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class Mhistory {
-        static String filePath = "C:/Archive/discord.txt";
+        static String filePath = "Archive/discord.txt";
         public static int numOn = 0;
         public static void record(MessageCreateEvent m ) {
             String content = m.getMessage().getContent();
@@ -30,7 +30,7 @@ public class Mhistory {
 
                 numOn++;
             } else {
-                System.out.println("saw: " +content + " | " + author.getNickname(guild) + " (" + author.getName() + ") "+ " | "+ guild.getName() + "-" + m.getServerTextChannel().toString() + " | " + m.getMessage().getCreationTimestamp() + " | " + m.getMessage().getIdAsString());
+                System.out.println("saw: " +content + " | " + author.getNickname(guild).get() + " (" + author.getName() + ") "+ " | "+ guild.getName() + "-" + m.getServerTextChannel().get().getName() + " | " + m.getMessage().getCreationTimestamp() + " | " + m.getMessage().getIdAsString());
             }
         }
         public static Message fetch(String msgId) {
