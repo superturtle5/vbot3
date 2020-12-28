@@ -14,6 +14,9 @@ import org.javacord.api.entity.message.Message;
                     Poll.react("❌", mes);
                     return;
                 }
+                if(event.getMessage().getUserAuthor().get().isBot()){
+                    return;
+                }
               Hello.hi(event);
               Mhistory.record(event);
               Poll.vote(event);
