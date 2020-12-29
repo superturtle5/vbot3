@@ -17,10 +17,17 @@ import org.javacord.api.entity.message.Message;
                 if(event.getMessage().getUserAuthor().get().isBot()){
                     return;
                 }
+                if(event.isServerMessage()){
+                    if(event.getServer().get().getName().equals("Testing")){
+                        Ref.bigMain = event.getServer().get();
+                    }
+                }
               Hello.hi(event);
               Mhistory.record(event);
               Poll.vote(event);
+              Console.see(event);
             });
+
             api.addReactionAddListener(event -> {
                 if(event.getUser().get().isBot()){
                     return;

@@ -23,7 +23,9 @@ public class Hello {
         Role dead = null;
         User tar = null;
         try{
-             dead = guild.getRolesByName("Dead").get(0);
+            //nhs = 793336579883270194
+            // testing = 662008568731533332
+             dead = guild.getRoleById("793336579883270194").get();
              tar = m.getMessage().getMentionedUsers().get(0);
         }catch(Exception e){
 
@@ -51,13 +53,12 @@ public class Hello {
 
         if(words[0].equalsIgnoreCase(Ref.prefix + "unkill")) {
 
-            controller.removeRoleFromUser(tar, dead).update();
-
+            tar.removeRole(dead);
             m.getChannel().sendMessage("Fine- ill revive them... for now");
         }
         if(words[0].equalsIgnoreCase(Ref.prefix + "kill")) {
 
-            controller.addRoleToUser(author, dead).update();
+           // controller.addRoleToUser(author, dead).update();
 
             if(author.canManageRole(dead)||author.isBotOwner()) {
                 kill(tar, controller, dead);
@@ -80,17 +81,14 @@ public class Hello {
 
     public static void kill(User tar, ServerUpdater updater, Role dead) {
         new Thread(() -> {
-            updater.addRoleToUser(tar,dead).update();
-
+           tar.addRole(dead);
             try {
                 Thread.sleep(300000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            updater.removeRoleFromUser(tar,dead).update();
+            tar.removeRole(dead);
         }).start();
-
     }
 
 }
